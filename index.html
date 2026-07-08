@@ -12,11 +12,12 @@
             --color-fondo: #faf8f5; /* Tono beige muy suave */
             --color-blanco: #ffffff;
             --color-dorado: #c5a059; /* Dorado elegante */
+            --color-dorado-suave: #e6d7bd;
             --color-texto: #333333;
             --fuente-manuscrita: 'Great Vibes', cursive;
             --fuente-clasica: 'Playfair Display', serif;
         }
-
+ 
         body, html {
             margin: 0;
             padding: 0;
@@ -26,11 +27,11 @@
             text-align: center;
             line-height: 1.6;
         }
-
+ 
         h1, h2, h3 {
             font-weight: 400;
         }
-
+ 
         .nombres-novios {
             font-family: var(--fuente-manuscrita);
             color: var(--color-dorado);
@@ -39,11 +40,11 @@
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
             transition: transform 0.3s ease;
         }
-
+ 
         .nombres-novios:hover {
             transform: scale(1.05);
         }
-
+ 
         .btn {
             display: inline-block;
             background-color: var(--color-dorado);
@@ -56,19 +57,19 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
             border: 1px solid var(--color-dorado);
         }
-
+ 
         .btn:hover {
             background-color: transparent;
             color: var(--color-dorado);
             transform: translateY(-3px);
         }
-
+ 
         section {
             padding: 60px 20px;
             max-width: 900px;
             margin: 0 auto;
         }
-
+ 
         /* --- PORTADA --- */
         .portada {
 background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Foto4.jpeg') center top/cover no-repeat;            height: 100vh;
@@ -79,14 +80,14 @@ background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Foto4.
             color: var(--color-blanco);
             padding: 0 20px;
         }
-
+ 
         .portada p {
             font-size: 1.5rem;
             letter-spacing: 2px;
             margin-top: 10px;
             opacity: 0.8;
         }
-
+ 
         /* --- CUENTA REGRESIVA --- */
         .cuenta-regresiva {
             background-color: var(--color-blanco);
@@ -98,7 +99,7 @@ background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Foto4.
             border-radius: 10px;
             max-width: 800px;
         }
-
+ 
         #contador {
             display: flex;
             justify-content: center;
@@ -107,7 +108,7 @@ background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Foto4.
             margin-top: 20px;
             flex-wrap: wrap;
         }
-
+ 
         .tiempo {
             display: flex;
             flex-direction: column;
@@ -119,41 +120,109 @@ background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Foto4.
             border: 1px solid #eee;
             transition: transform 0.3s ease;
         }
-
+ 
         .tiempo:hover {
             transform: scale(1.05);
         }
-
+ 
         .tiempo span {
             font-size: 2.5rem;
             color: var(--color-dorado);
             font-family: var(--fuente-clasica);
             font-weight: 600;
         }
-
+ 
         /* --- DETALLES Y HORARIOS --- */
+        .detalles-titulo {
+            font-size: 2rem;
+            margin-bottom: 60px;
+            position: relative;
+        }
+ 
+        .detalles-titulo::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 1px;
+            background-color: var(--color-dorado);
+            margin: 18px auto 0;
+        }
+ 
         .horarios-container {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 70px;
             flex-wrap: wrap;
-            margin-bottom: 30px;
+            margin-bottom: 55px;
+            position: relative;
         }
-
+ 
+        .horarios-container::before {
+            content: "";
+            position: absolute;
+            top: 6px;
+            left: 12%;
+            right: 12%;
+            height: 1px;
+            background-color: var(--color-dorado-suave);
+            z-index: 0;
+        }
+ 
         .evento {
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
-
+ 
+        .evento-punto {
+            display: block;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background-color: var(--color-dorado);
+            margin: 0 auto 18px;
+            box-shadow: 0 0 0 5px var(--color-fondo);
+        }
+ 
         .evento h3 {
             color: var(--color-dorado);
-            margin-bottom: 5px;
+            margin: 0 0 6px;
+            font-size: 1.3rem;
         }
-
+ 
+        .evento p {
+            margin: 0;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #888;
+        }
+ 
+        .ubicacion {
+            background-color: var(--color-blanco);
+            border: 1px solid #eaeaea;
+            border-radius: 10px;
+            padding: 35px 30px;
+            max-width: 420px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+ 
+        .ubicacion-etiqueta {
+            display: block;
+            font-size: 0.78rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-dorado);
+            margin-bottom: 10px;
+        }
+ 
         .ubicacion p {
             font-size: 1.2rem;
             font-weight: 600;
+            margin: 0 0 18px;
         }
-
+ 
         /* --- DETALLES ADICIONALES (Dress Code y Hotel) --- */
         .info-adicional {
             background-color: var(--color-blanco);
@@ -163,29 +232,150 @@ background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Foto4.
             margin: 20px auto;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-
+ 
         .info-adicional h3 {
             color: var(--color-dorado);
             font-family: var(--fuente-manuscrita);
             font-size: 2.5rem;
             margin-bottom: 10px;
         }
-
-        /* --- RSVP --- */
+ 
+        /* --- RSVP (sección destacada) --- */
         .rsvp {
-            background-color: var(--color-fondo);
+            max-width: none;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #2b241c;
+            background-image: radial-gradient(circle at 50% 0%, rgba(197,160,89,0.12), transparent 60%);
+            border-top: 1px solid var(--color-dorado);
+            border-bottom: 1px solid var(--color-dorado);
+            padding: 100px 20px;
+            position: relative;
         }
-
+ 
+        .rsvp-ornamento {
+            display: block;
+            color: var(--color-dorado);
+            font-size: 1.1rem;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            opacity: 0.85;
+        }
+ 
+        .rsvp-titulo {
+            font-family: var(--fuente-manuscrita);
+            font-size: 3.6rem;
+            color: var(--color-dorado);
+            margin: 0 0 18px;
+        }
+ 
+        .rsvp-texto {
+            color: #f2ece2;
+            opacity: 0.85;
+            font-size: 1.15rem;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+ 
+        .btn-rsvp {
+            font-size: 1.35rem;
+            padding: 18px 48px;
+            margin-top: 35px;
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.35);
+        }
+ 
         .nota-alimentos {
             font-size: 0.95rem;
             font-style: italic;
-            color: #666;
-            margin-top: 15px;
-            max-width: 600px;
+            color: #cfc6b8;
+            margin-top: 25px;
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
         }
-
+ 
+        /* --- REGALOS DE EXPERIENCIAS --- */
+        .regalos {
+            background-color: var(--color-fondo);
+            padding: 70px 20px;
+        }
+ 
+        .regalos-marco {
+            position: relative;
+            max-width: 680px;
+            margin: 0 auto;
+            background-color: var(--color-blanco);
+            border-radius: 4px;
+            padding: 55px 40px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+        }
+ 
+        .regalos-marco::before {
+            content: "";
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            right: 14px;
+            bottom: 14px;
+            border: 1px solid var(--color-dorado-suave);
+            border-radius: 2px;
+            pointer-events: none;
+        }
+ 
+        .regalos-ornamento {
+            display: block;
+            color: var(--color-dorado);
+            font-size: 1.3rem;
+            letter-spacing: 8px;
+            margin-bottom: 18px;
+        }
+ 
+        .regalos-titulo {
+            font-family: var(--fuente-manuscrita);
+            color: var(--color-dorado);
+            font-size: 3rem;
+            margin: 0;
+        }
+ 
+        .regalos-subtitulo {
+            font-family: var(--fuente-clasica);
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #999;
+            margin: 8px 0 0;
+        }
+ 
+        .regalos-divisor {
+            width: 50px;
+            height: 1px;
+            background-color: var(--color-dorado);
+            margin: 28px auto;
+        }
+ 
+        .regalos-texto {
+            font-size: 1.05rem;
+            color: var(--color-texto);
+            max-width: 480px;
+            margin: 0 auto 16px;
+            line-height: 1.9;
+        }
+ 
+        .regalos-agradecimiento {
+            font-family: var(--fuente-clasica);
+            font-style: italic;
+            color: var(--color-dorado);
+            font-size: 1.05rem;
+            margin: 26px 0 6px;
+        }
+ 
+        .btn-regalo {
+            margin-top: 20px;
+            padding: 14px 38px;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+        }
+ 
         /* --- GALERÍA --- */
         .galeria-grid {
             display: grid;
@@ -193,7 +383,7 @@ background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Foto4.
             gap: 15px;
             margin-top: 30px;
         }
-
+ 
         .galeria-grid img {
             width: 100%;
             height: 300px;
@@ -202,26 +392,31 @@ background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Foto4.
             transition: transform 0.3s ease;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-
+ 
         .galeria-grid img:hover {
             transform: scale(1.03);
         }
-
+ 
         /* --- RESPONSIVE --- */
         @media (max-width: 600px) {
             .nombres-novios { font-size: 3.5rem; }
-            .horarios-container { gap: 20px; flex-direction: column; }
+            .horarios-container { gap: 36px; flex-direction: column; }
+            .horarios-container::before { display: none; }
+            .regalos-marco { padding: 45px 24px; }
+            .regalos-titulo { font-size: 2.4rem; }
+            .rsvp { padding: 70px 20px; }
+            .rsvp-titulo { font-size: 2.8rem; }
         }
     </style>
 </head>
 <body>
-
+ 
     <header class="portada">
         <h2>¡Nos Casamos!</h2>
         <h1 class="nombres-novios">Marjorie Belen y Emilio</h1>
         <p>10 de octubre 2026</p>
     </header>
-
+ 
     <section class="cuenta-regresiva">
         <h2 style="color: var(--color-dorado); font-family: var(--fuente-manuscrita); font-size: 3rem; margin:0;">Faltan</h2>
         <div id="contador">
@@ -231,63 +426,78 @@ background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Foto4.
             <div class="tiempo"><span id="segundos">00</span> Segundos</div>
         </div>
     </section>
-
+ 
     <section class="detalles">
-        <h2 style="font-size: 2rem; margin-bottom: 40px;">El Gran Día</h2>
-        
+        <h2 class="detalles-titulo">El Gran Día</h2>
+ 
         <div class="horarios-container">
             <div class="evento">
+                <span class="evento-punto"></span>
                 <h3>19:30 hrs</h3>
                 <p>Ceremonia</p>
             </div>
             <div class="evento">
+                <span class="evento-punto"></span>
                 <h3>20:00 hrs</h3>
                 <p>Cóctel</p>
             </div>
             <div class="evento">
+                <span class="evento-punto"></span>
                 <h3>21:00 hrs</h3>
                 <p>Cena</p>
             </div>
         </div>
-
+ 
         <div class="ubicacion">
+            <span class="ubicacion-etiqueta">Ubicación</span>
             <p>Hotel Le Méridien Santiago</p>
             <a href="https://maps.app.goo.gl/hEgQeNPWwZf3WoHW6?g_st=ac" target="_blank" class="btn">Ver ubicación en el Mapa</a>
         </div>
     </section>
-
+ 
     <section class="info-adicional">
         <div class="dress-code">
             <h3>Dress Code</h3>
             <p><strong>Elegante</strong></p>
             <p style="font-size: 0.9rem; color: #555;">(Te recordamos cariñosamente que el color blanco está reservado solo para la novia)</p>
         </div>
-
+ 
         <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 30px 0;">
-
+ 
         <div class="alojamiento">
             <h3>Alojamiento</h3>
             <p>Para su comodidad, nuestros invitados tendrán un <strong>descuento especial</strong> por alojar en el hotel la noche de la boda.</p>
             <p>Para hacerlo efectivo, deben enviar un correo a <a href="mailto:reservas@lemeridiensantiago.cl" style="color: var(--color-dorado);">reservas@lemeridiensantiago.cl</a> indicando la fecha del evento y nuestros nombres.</p>
         </div>
     </section>
-
+ 
     <section class="rsvp">
-        <h2 style="font-family: var(--fuente-manuscrita); font-size: 3rem; color: var(--color-dorado); margin-bottom: 10px;">Acompáñanos</h2>
-        <p>Tu presencia es muy importante para nosotros. Por favor, confirma tu asistencia a continuación.</p>
-        
-        <a href="https://docs.google.com/forms/dummy-link" target="_blank" class="btn" style="font-size: 1.3rem; padding: 15px 40px;">Confirmar Asistencia</a>
-        
+        <span class="rsvp-ornamento">✦ ✦ ✦</span>
+        <h2 class="rsvp-titulo">Acompáñanos</h2>
+        <p class="rsvp-texto">Tu presencia es muy importante para nosotros. Por favor, confirma tu asistencia a continuación.</p>
+ 
+        <a href="https://docs.google.com/forms/dummy-link" target="_blank" class="btn btn-rsvp">Confirmar Asistencia</a>
+ 
         <p class="nota-alimentos">Por favor, indícanos tus restricciones alimentarias (alergias, veganos, etc.) al confirmar tu asistencia en el formulario.</p>
     </section>
-
+ 
     <section class="regalos">
-        <h2 style="font-size: 2rem;">¡Bienvenidos a nuestra lista de regalos de experiencias! </h2>
-        <p><br> Como ya tenemos el corazón lleno y la casa armada , decidimos que el mejor regalo que nos pueden hacer, es ayudarnos a disfrutar al maximo. <br> Aqui abajo encontraras un listado de experiencias y aportes pensado especialmente para nuestra luna de miel soñada, ustedes eligen que parte de este recuerdo quieren auspiciar. <br> ¡ Gracias por acompañarnos y ser parte de este momento !</p>
-        
-        <a href="https://www.checkinlove.com/Marjorieyemilio" target="_blank" class="btn">Regala una experiencia a los novios</a>
+        <div class="regalos-marco">
+            <span class="regalos-ornamento">✦ ✦ ✦</span>
+            <h2 class="regalos-titulo">Nuestra Luna de Miel</h2>
+            <p class="regalos-subtitulo">Lista de regalos de experiencias</p>
+ 
+            <div class="regalos-divisor"></div>
+ 
+            <p class="regalos-texto">Ya tenemos el corazón lleno y la casa armada. Por eso, el mejor regalo que nos pueden dar es ayudarnos a disfrutar al máximo de la luna de miel que hemos soñado.</p>
+            <p class="regalos-texto">Aquí abajo encontrarán un listado de experiencias y aportes pensados especialmente para este viaje. Ustedes eligen qué parte de este recuerdo quieren auspiciar.</p>
+ 
+            <p class="regalos-agradecimiento">¡Gracias por acompañarnos y ser parte de este momento!</p>
+ 
+            <a href="https://www.checkinlove.com/Marjorieyemilio" target="_blank" class="btn btn-regalo">Regalar una experiencia</a>
+        </div>
     </section>
-
+ 
     <section class="galeria">
         <h2 style="font-family: var(--fuente-manuscrita); font-size: 3rem; color: var(--color-dorado);">Nuestros Momentos</h2>
         <p>Algunos recuerdos de nuestra historia.</p>
@@ -297,31 +507,31 @@ background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Foto4.
 <img src="Foto2.jpeg" alt="Foto Novios 1">
 <img src="Foto3.jpeg" alt="Foto Novios 1">    </div>
     </section>
-
+ 
     <footer style="background-color: var(--color-texto); color: white; padding: 20px; text-align: center; margin-top: 40px;">
         <p style="font-family: var(--fuente-manuscrita); font-size: 1.8rem; margin: 0;">Los esperamos</p>
     </footer>
-
+ 
     <script>
         // Fecha de la boda: 10 de octubre de 2026 a las 19:30
         const fechaBoda = new Date("October 10, 2026 19:30:00").getTime();
-
+ 
         const intervalo = setInterval(function() {
             const ahora = new Date().getTime();
             const distancia = fechaBoda - ahora;
-
+ 
             // Cálculos matemáticos para días, horas, minutos y segundos
             const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
             const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
             const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
-
+ 
             // Agregar un cero a la izquierda si el número es menor a 10
             document.getElementById("dias").innerHTML = dias < 10 ? "0" + dias : dias;
             document.getElementById("horas").innerHTML = horas < 10 ? "0" + horas : horas;
             document.getElementById("minutos").innerHTML = minutos < 10 ? "0" + minutos : minutos;
             document.getElementById("segundos").innerHTML = segundos < 10 ? "0" + segundos : segundos;
-
+ 
             // Si la cuenta regresiva termina
             if (distancia < 0) {
                 clearInterval(intervalo);
