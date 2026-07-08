@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Boda - Marjorie Belen y Emilio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- ESTILOS GENERALES (Romántico/Clásico) --- */
+        :root {
+            --color-fondo: #faf8f5; /* Tono beige muy suave */
+            --color-blanco: #ffffff;
+            --color-dorado: #c5a059; /* Dorado elegante */
+            --color-texto: #333333;
+            --fuente-manuscrita: 'Great Vibes', cursive;
+            --fuente-clasica: 'Playfair Display', serif;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: var(--fuente-clasica);
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-weight: 400;
+        }
+
+        .nombres-novios {
+            font-family: var(--fuente-manuscrita);
+            color: var(--color-dorado);
+            font-size: 4.5rem;
+            margin: 0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .nombres-novios:hover {
+            transform: scale(1.05);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--color-dorado);
+            color: var(--color-blanco);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            margin-top: 15px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: 1px solid var(--color-dorado);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--color-dorado);
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --- PORTADA --- */
+        .portada {
+background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Foto4.jpeg') center top/cover no-repeat;            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--color-blanco);
+            padding: 0 20px;
+        }
+
+        .portada p {
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        /* --- CUENTA REGRESIVA --- */
+        .cuenta-regresiva {
+            background-color: var(--color-blanco);
+            padding: 40px 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+
+        #contador {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tiempo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--color-fondo);
+            padding: 15px 20px;
+            border-radius: 8px;
+            min-width: 80px;
+            border: 1px solid #eee;
+            transition: transform 0.3s ease;
+        }
+
+        .tiempo:hover {
+            transform: scale(1.05);
+        }
+
+        .tiempo span {
+            font-size: 2.5rem;
+            color: var(--color-dorado);
+            font-family: var(--fuente-clasica);
+            font-weight: 600;
+        }
+
+        /* --- DETALLES Y HORARIOS --- */
+        .horarios-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .evento {
+            text-align: center;
+        }
+
+        .evento h3 {
+            color: var(--color-dorado);
+            margin-bottom: 5px;
+        }
+
+        .ubicacion p {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* --- DETALLES ADICIONALES (Dress Code y Hotel) --- */
+        .info-adicional {
+            background-color: var(--color-blanco);
+            border: 1px solid #eaeaea;
+            border-radius: 10px;
+            padding: 40px 20px;
+            margin: 20px auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .info-adicional h3 {
+            color: var(--color-dorado);
+            font-family: var(--fuente-manuscrita);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- RSVP --- */
+        .rsvp {
+            background-color: var(--color-fondo);
+        }
+
+        .nota-alimentos {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: #666;
+            margin-top: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- GALERÍA --- */
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .galeria-grid img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .galeria-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 600px) {
+            .nombres-novios { font-size: 3.5rem; }
+            .horarios-container { gap: 20px; flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="portada">
+        <h2>¡Nos Casamos!</h2>
+        <h1 class="nombres-novios">Marjorie Belen y Emilio</h1>
+        <p>10 de octubre 2026</p>
+    </header>
+
+    <section class="cuenta-regresiva">
+        <h2 style="color: var(--color-dorado); font-family: var(--fuente-manuscrita); font-size: 3rem; margin:0;">Faltan</h2>
+        <div id="contador">
+            <div class="tiempo"><span id="dias">00</span> Días</div>
+            <div class="tiempo"><span id="horas">00</span> Horas</div>
+            <div class="tiempo"><span id="minutos">00</span> Minutos</div>
+            <div class="tiempo"><span id="segundos">00</span> Segundos</div>
+        </div>
+    </section>
+
+    <section class="detalles">
+        <h2 style="font-size: 2rem; margin-bottom: 40px;">El Gran Día</h2>
+        
+        <div class="horarios-container">
+            <div class="evento">
+                <h3>19:30 hrs</h3>
+                <p>Ceremonia</p>
+            </div>
+            <div class="evento">
+                <h3>20:00 hrs</h3>
+                <p>Cóctel</p>
+            </div>
+            <div class="evento">
+                <h3>21:00 hrs</h3>
+                <p>Cena</p>
+            </div>
+        </div>
+
+        <div class="ubicacion">
+            <p>Hotel Le Méridien Santiago</p>
+            <a href="https://maps.app.goo.gl/hEgQeNPWwZf3WoHW6?g_st=ac" target="_blank" class="btn">Ver ubicación en el Mapa</a>
+        </div>
+    </section>
+
+    <section class="info-adicional">
+        <div class="dress-code">
+            <h3>Dress Code</h3>
+            <p><strong>Elegante</strong></p>
+            <p style="font-size: 0.9rem; color: #555;">(Te recordamos cariñosamente que el color blanco está reservado solo para la novia)</p>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #eaeaea; margin: 30px 0;">
+
+        <div class="alojamiento">
+            <h3>Alojamiento</h3>
+            <p>Para su comodidad, nuestros invitados tendrán un <strong>descuento especial</strong> por alojar en el hotel la noche de la boda.</p>
+            <p>Para hacerlo efectivo, deben enviar un correo a <a href="mailto:reservas@lemeridiensantiago.cl" style="color: var(--color-dorado);">reservas@lemeridiensantiago.cl</a> indicando la fecha del evento y nuestros nombres.</p>
+        </div>
+    </section>
+
+    <section class="rsvp">
+        <h2 style="font-family: var(--fuente-manuscrita); font-size: 3rem; color: var(--color-dorado); margin-bottom: 10px;">Acompáñanos</h2>
+        <p>Tu presencia es muy importante para nosotros. Por favor, confirma tu asistencia a continuación.</p>
+        
+        <a href="https://docs.google.com/forms/dummy-link" target="_blank" class="btn" style="font-size: 1.3rem; padding: 15px 40px;">Confirmar Asistencia</a>
+        
+        <p class="nota-alimentos">Por favor, indícanos tus restricciones alimentarias (alergias, veganos, etc.) al confirmar tu asistencia en el formulario.</p>
+    </section>
+
+    <section class="regalos">
+        <h2 style="font-size: 2rem;">Mesa de Regalos</h2>
+        <p>El mejor regalo es que compartas este día con nosotros. Pero si deseas tener un detalle adicional, puedes hacerlo aquí:</p>
+        
+        <a href="https://tupagina.com/link-dummy-regalos" target="_blank" class="btn">Regala una experiencia a los novios</a>
+    </section>
+
+    <section class="galeria">
+        <h2 style="font-family: var(--fuente-manuscrita); font-size: 3rem; color: var(--color-dorado);">Nuestros Momentos</h2>
+        <p>Algunos recuerdos de nuestra historia.</p>
+        
+        <div class="galeria-grid">
+<img src="Foto1.jpeg" alt="Foto Novios 1">
+<img src="Foto2.jpeg" alt="Foto Novios 1">
+<img src="Foto3.jpeg" alt="Foto Novios 1">    </div>
+    </section>
+
+    <footer style="background-color: var(--color-texto); color: white; padding: 20px; text-align: center; margin-top: 40px;">
+        <p style="font-family: var(--fuente-manuscrita); font-size: 1.8rem; margin: 0;">Los esperamos</p>
+    </footer>
+
+    <script>
+        // Fecha de la boda: 10 de octubre de 2026 a las 19:30
+        const fechaBoda = new Date("October 10, 2026 19:30:00").getTime();
+
+        const intervalo = setInterval(function() {
+            const ahora = new Date().getTime();
+            const distancia = fechaBoda - ahora;
+
+            // Cálculos matemáticos para días, horas, minutos y segundos
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+            // Agregar un cero a la izquierda si el número es menor a 10
+            document.getElementById("dias").innerHTML = dias < 10 ? "0" + dias : dias;
+            document.getElementById("horas").innerHTML = horas < 10 ? "0" + horas : horas;
+            document.getElementById("minutos").innerHTML = minutos < 10 ? "0" + minutos : minutos;
+            document.getElementById("segundos").innerHTML = segundos < 10 ? "0" + segundos : segundos;
+
+            // Si la cuenta regresiva termina
+            if (distancia < 0) {
+                clearInterval(intervalo);
+                document.getElementById("contador").innerHTML = "<h2 style='color: var(--color-dorado);'>¡El gran día ha llegado!</h2>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
