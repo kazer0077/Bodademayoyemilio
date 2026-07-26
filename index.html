@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestra Boda - Marjorie Belen y Emilio</title>
+    <title>Nuestra Boda - Marjorie y Emilio</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -486,7 +486,7 @@ background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Foto4.
         <div class="horarios-container">
             <div class="evento">
                 <span class="evento-punto"></span>
-                <h3>19:30 hrs</h3>
+                <h3>19:00 hrs</h3>
                 <p>Ceremonia</p>
             </div>
             <div class="evento">
@@ -516,7 +516,7 @@ background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Foto4.
     <section class="info-adicional">
         <div class="dress-code">
             <h3>Dress Code</h3>
-            <p><strong>Elegante</strong></p>
+            <p><strong>Formal</strong></p>
             <p style="font-size: 0.9rem; color: #555;">(Te recordamos cariñosamente que el color blanco está reservado solo para la novia)</p>
         </div>
 
@@ -536,23 +536,38 @@ background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Foto4.
 
         <a href="https://docs.google.com/forms/dummy-link" target="_blank" class="btn btn-rsvp">Confirmar Asistencia</a>
 
-        <p class="nota-alimentos">Por favor, indícanos tus restricciones alimentarias (alergias, veganos, etc.) al confirmar tu asistencia en el formulario.</p>
+        <p class="nota-alimentos">Junto con la confirmacion, en el formulario indícanos tus restricciones alimentarias (alergias, veganos, etc.).</p>
     </section>
 
     <section class="regalos">
         <div class="regalos-marco">
             <span class="regalos-ornamento">✦ ✦ ✦</span>
             <h2 class="regalos-titulo">Nuestros deseos</h2>
-            <p class="regalos-subtitulo">Lista de regalos</p>
+            <p class="regalos-subtitulo">Lista de deseos</p>
 
             <div class="regalos-divisor"></div>
 
-            <p class="regalos-texto">Ya tenemos el corazón lleno y la casa armada. Por eso, el mejor regalo que nos pueden dar, es mimando algunos de nuestros deseos soñados.</p>
-            <p class="regalos-texto">Aquí abajo encontrarán un listado de deseos. Ustedes eligen qué parte de estos quieren auspiciar.</p>
+            <p class="regalos-texto">Ya tenemos el corazón lleno y la casa armada. Por eso, el mejor regalo que nos pueden dar, es mimando algunos de nuestros deseos. Ustedes eligen qué parte de estos quieren auspiciar.</p>
+            
+
+            <a href="https://milistadenovios.cl/lista/bye" target="_blank" class="btn btn-regalo">Pincha aqui y regala un deseo</a>
 
             <p class="regalos-agradecimiento">¡Gracias por acompañarnos y ser parte de este momento!</p>
+            <p class="regalos-texto">*O tambien puede regalar por medio de trasferencia</p>
+            <section class="transferencia">
+        <div class="transferencia-marco">
+            <h2 class="transferencia-titulo">Datos para Transferencia</h2>
 
-            <a href="https://milistadenovios.cl/lista/bye" target="_blank" class="btn btn-regalo">Regalar una experiencia</a>
+            <p class="transferencia-texto" id="datos-transferencia">Marjorie Bravo<br>
+16.297.286-3<br>
+Banco de Chile<br>
+Cuenta Corriente<br>
+00-258-00800-08<br>
+marjoriebravo83@gmail.com</p>
+
+            <button type="button" class="btn-copiar" onclick="copiarDatos(this)">Copiar</button>
+        </div>
+    </section>
         </div>
     </section>
 
@@ -596,6 +611,41 @@ background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Foto4.
                 document.getElementById("contador").innerHTML = "<h2 style='color: var(--color-dorado);'>¡El gran día ha llegado!</h2>";
             }
         }, 1000);
+    </script>
+    <script>
+        // Copia todos los datos de transferencia y muestra confirmación visual
+        function copiarDatos(boton) {
+            const contenedor = document.getElementById("datos-transferencia");
+            const texto = contenedor.innerText.trim();
+
+            copiarAlPortapapeles(texto).then(() => {
+                boton.textContent = "¡Copiado!";
+                boton.classList.add("copiado");
+                setTimeout(() => {
+                    boton.textContent = "Copiar";
+                    boton.classList.remove("copiado");
+                }, 1500);
+            });
+        }
+
+        // Utilidad de copiado con método moderno y respaldo para navegadores antiguos
+        function copiarAlPortapapeles(texto) {
+            if (navigator.clipboard && window.isSecureContext) {
+                return navigator.clipboard.writeText(texto);
+            }
+            return new Promise((resolve) => {
+                const textarea = document.createElement("textarea");
+                textarea.value = texto;
+                textarea.style.position = "fixed";
+                textarea.style.opacity = "0";
+                document.body.appendChild(textarea);
+                textarea.focus();
+                textarea.select();
+                document.execCommand("copy");
+                document.body.removeChild(textarea);
+                resolve();
+            });
+        }
     </script>
 </body>
 </html>
